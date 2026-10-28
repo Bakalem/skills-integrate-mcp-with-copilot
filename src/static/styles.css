@@ -16,12 +16,46 @@ body {
 }
 
 header {
+  position: relative;
   text-align: center;
   padding: 20px 0;
   margin-bottom: 30px;
   background-color: #1a237e;
   color: white;
   border-radius: 5px;
+}
+
+#login-toggle {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background-color: white;
+  color: #1a237e;
+}
+
+#login-toggle:hover {
+  background-color: #e8eaf6;
+}
+
+dialog#auth-panel {
+  position: fixed;
+  inset: 0;
+  width: min(500px, calc(100% - 24px));
+  max-width: none;
+  margin: auto;
+  padding: 24px;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
+}
+
+dialog#auth-panel::backdrop {
+  background-color: rgba(0, 0, 0, 0.45);
+}
+
+.dialog-close {
+  float: right;
+  padding: 3px 9px;
 }
 
 header h1 {
@@ -111,18 +145,16 @@ section h3 {
 }
 
 .delete-btn {
-  background: none;
-  border: none;
-  color: #c62828;
+  background-color: #c62828;
   cursor: pointer;
-  font-size: 14px;
-  padding: 2px 5px;
-  transition: all 0.2s;
+  font-size: 13px;
+  padding: 5px 8px;
+  transition: background-color 0.2s;
   border-radius: 3px;
 }
 
 .delete-btn:hover {
-  background-color: #ffebee;
+  background-color: #8e0000;
 }
 
 .participants-section p {
@@ -165,9 +197,15 @@ button:hover {
 }
 
 .message {
-  margin-top: 20px;
+  max-width: 500px;
+  margin: 20px auto 0;
   padding: 10px;
   border-radius: 4px;
+}
+
+.success,
+.error {
+  margin-top: 20px;
 }
 
 .success {
@@ -197,4 +235,19 @@ footer {
   margin-top: 30px;
   padding: 20px;
   color: #666;
+}
+
+@media (max-width: 600px) {
+  body {
+    padding: 12px;
+  }
+
+  header {
+    padding: 64px 12px 20px;
+  }
+
+  #login-toggle {
+    top: 12px;
+    right: 12px;
+  }
 }
